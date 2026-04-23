@@ -110,6 +110,8 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 | `gl_create_line(start, end)` | 線を作成 |
 | `gl_create_rect(origin, size)` | 矩形を作成 |
 | `gl_create_cube(origin, size)` | 立方体を作成 |
+| `gl_create_cone(origin, radius, height, slices)` | 円錐を作成 |
+| `gl_create_cylinder(origin, radius, height, slices)` | 円柱を作成 |
 
 ### Color
 
@@ -121,6 +123,10 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 | `gl_colors_cube(cube, colors[6])` | 立方体の各面を個別に着色 |
 | `gl_outline_rect(rect, color)` | 矩形の枠線を設定 |
 | `gl_outline_cube(cube, color)` | 立方体の枠線を設定 |
+| `gl_color_cone(cone, color)` | 円錐の色を設定 |
+| `gl_outline_cone(cone, color)` | 円錐の枠線を設定 |
+| `gl_color_cylinder(cyl, color)` | 円柱の色を設定 |
+| `gl_outline_cylinder(cyl, color)` | 円柱の枠線を設定 |
 
 ### Transform
 
@@ -137,6 +143,11 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 | `gl_draw_line(line)` | 線を描画 |
 | `gl_draw_rect(rect)` | 矩形を描画 |
 | `gl_draw_cube(cube)` | 立方体を描画 |
+| `gl_draw_cone(cone)` | 円錐を描画 |
+| `gl_draw_wire_cone(cone, slices, stacks)` | 円錐をワイヤーフレームで描画 |
+| `gl_draw_cylinder(cyl)` | 円柱を描画 |
+| `gl_draw_wire_cylinder(cyl)` | 円柱をワイヤーフレームで描画 |
+| `gl_draw_wire_rect(rect)` | 矩形をワイヤーフレームで描画 |
 
 ### Utility
 
@@ -149,3 +160,15 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 プリセットカラー: `gl_red`, `gl_green`, `gl_blue`, `gl_yellow`, `gl_cyan`, `gl_magenta`, `gl_white`, `gl_black`
 
 マクロ版 (`RED`, `GREEN`, `BLUE` ...) は `gl_color()` の引数として直接展開できる: `gl_color(RED)`
+
+## Contributing
+
+Pull Request 歓迎です! バグ修正、新しいオブジェクト、API の改善など気軽にどうぞ。
+
+1. Fork して自分のブランチで作業
+2. `make re` でビルドが通ることを確認
+3. Pull Request を送る
+
+## License
+
+[MIT](LICENSE)
