@@ -20,11 +20,11 @@
 
 /* ========== solid objects ========== */
 
-# include "line/gl_line.h"
-# include "rect/gl_rect.h"
-# include "cube/gl_cube.h"
-# include "cone/gl_cone.h"
-# include "cylinder/gl_cylinder.h"
+# include "solids/line/gl_line.h"
+# include "solids/rect/gl_rect.h"
+# include "solids/cube/gl_cube.h"
+# include "solids/cone/gl_cone.h"
+# include "solids/cylinder/gl_cylinder.h"
 
 /* ========== wire objects ========== */
 
