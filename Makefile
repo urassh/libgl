@@ -14,11 +14,12 @@ SRCS	=	line/gl_create_line.c \
 			cube/gl_colors_cube.c \
 			cube/gl_outline_cube.c \
 			cube/gl_draw_cube.c \
-			util/gl_util.c \
-			util/gl_colors.c \
-			util/gl_rotate.c \
-			util/gl_translate.c \
-			util/gl_scale.c \
+			params/vector/gl_vec3.c \
+			params/color/gl_color.c \
+			params/color/gl_colors.c \
+			params/transform/gl_rotate.c \
+			params/transform/gl_translate.c \
+			params/transform/gl_scale.c \
 			cone/gl_create_cone.c \
 			cone/gl_color_cone.c \
 			cone/gl_outline_cone.c \

@@ -1,0 +1,25 @@
+#ifndef GL_WIRE_CONE_H
+# define GL_WIRE_CONE_H
+
+# include "params/vector/gl_vector.h"
+# include "params/color/gl_color.h"
+# include "params/transform/gl_transform.h"
+
+typedef struct s_wire_cone
+{
+	t_vec3		origin;
+	float		radius;
+	float		height;
+	int			slices;
+	int			stacks;
+	t_color		color;
+	t_transform	transform;
+}	t_wire_cone;
+
+t_wire_cone	gl_create_wire_cone(t_vec3 origin, float radius, float height);
+void		gl_color_wire_cone(t_wire_cone *cone, t_color color);
+void		gl_slices_wire_cone(t_wire_cone *cone, int slices);
+void		gl_stacks_wire_cone(t_wire_cone *cone, int stacks);
+void		gl_draw_wire_cone(t_wire_cone *cone);
+
+#endif
