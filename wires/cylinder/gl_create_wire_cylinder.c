@@ -1,0 +1,17 @@
+#include "libgl.h"
+
+t_wire_cylinder	gl_create_wire_cylinder(t_vec3 origin, float radius,
+					float height)
+{
+	t_wire_cylinder	cyl;
+
+	cyl.origin = origin;
+	cyl.radius = radius;
+	cyl.height = height;
+	cyl.slices = 12;
+	cyl.color = gl_black();
+	cyl.transform.rotation = gl_vec3(0, 0, 0);
+	cyl.transform.offset = gl_vec3(0, 0, 0);
+	cyl.transform.scale = gl_vec3(1, 1, 1);
+	return (cyl);
+}

@@ -1,6 +1,6 @@
 #include "libgl.h"
 
-void	gl_draw_wire_rect(t_rect *rect)
+void	gl_draw_wire_rect(t_wire_rect *rect)
 {
 	float	x;
 	float	y;

@@ -89,6 +89,45 @@ typedef struct s_cylinder
 	t_transform	transform;
 }	t_cylinder;
 
+/* ========== wire types ========== */
+
+typedef struct s_wire_rect
+{
+	t_vec3		origin;
+	t_vec3		size;
+	t_color		color;
+	t_transform	transform;
+}	t_wire_rect;
+
+typedef struct s_wire_cube
+{
+	t_vec3		origin;
+	t_vec3		size;
+	t_color		color;
+	t_transform	transform;
+}	t_wire_cube;
+
+typedef struct s_wire_cone
+{
+	t_vec3		origin;
+	float		radius;
+	float		height;
+	int			slices;
+	int			stacks;
+	t_color		color;
+	t_transform	transform;
+}	t_wire_cone;
+
+typedef struct s_wire_cylinder
+{
+	t_vec3		origin;
+	float		radius;
+	float		height;
+	int			slices;
+	t_color		color;
+	t_transform	transform;
+}	t_wire_cylinder;
+
 /* ========== color macros (3 floats) ========== */
 
 # define RED     1.0f, 0.0f, 0.0f
@@ -110,6 +149,14 @@ t_cone		gl_create_cone(t_vec3 origin, float radius, float height, int slices);
 t_cylinder	gl_create_cylinder(t_vec3 origin, float radius, float height,
 				int slices);
 
+/* ========== wire create ========== */
+
+t_wire_rect		gl_create_wire_rect(t_vec3 origin, t_vec3 size);
+t_wire_cube		gl_create_wire_cube(t_vec3 origin, t_vec3 size);
+t_wire_cone		gl_create_wire_cone(t_vec3 origin, float radius, float height);
+t_wire_cylinder	gl_create_wire_cylinder(t_vec3 origin, float radius,
+					float height);
+
 /* ========== color ========== */
 
 void	gl_color_line(t_line *line, t_color color);
@@ -123,6 +170,16 @@ void	gl_outline_cone(t_cone *cone, t_color color);
 void	gl_color_cylinder(t_cylinder *cyl, t_color color);
 void	gl_outline_cylinder(t_cylinder *cyl, t_color color);
 
+/* ========== wire color ========== */
+
+void	gl_color_wire_rect(t_wire_rect *rect, t_color color);
+void	gl_color_wire_cube(t_wire_cube *cube, t_color color);
+void	gl_color_wire_cone(t_wire_cone *cone, t_color color);
+void	gl_slices_wire_cone(t_wire_cone *cone, int slices);
+void	gl_stacks_wire_cone(t_wire_cone *cone, int stacks);
+void	gl_color_wire_cylinder(t_wire_cylinder *cyl, t_color color);
+void	gl_slices_wire_cylinder(t_wire_cylinder *cyl, int slices);
+
 /* ========== transform ========== */
 
 void	gl_rotate(t_transform *tf, t_vec3 angle);
@@ -133,12 +190,16 @@ void	gl_scale(t_transform *tf, t_vec3 scale);
 
 void	gl_draw_line(t_line *line);
 void	gl_draw_rect(t_rect *rect);
-void	gl_draw_wire_rect(t_rect *rect);
 void	gl_draw_cube(t_cube *cube);
 void	gl_draw_cone(t_cone *cone);
-void	gl_draw_wire_cone(t_cone *cone, int slices, int stacks);
 void	gl_draw_cylinder(t_cylinder *cyl);
-void	gl_draw_wire_cylinder(t_cylinder *cyl);
+
+/* ========== wire draw ========== */
+
+void	gl_draw_wire_rect(t_wire_rect *rect);
+void	gl_draw_wire_cube(t_wire_cube *cube);
+void	gl_draw_wire_cone(t_wire_cone *cone);
+void	gl_draw_wire_cylinder(t_wire_cylinder *cyl);
 
 /* ========== utility ========== */
 
