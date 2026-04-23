@@ -1,6 +1,6 @@
 # libgl
 
-OpenGL/GLUT をラップした軽量な描画ライブラリ。線・矩形・立方体の作成・着色・変形・描画を簡潔に書ける。
+OpenGL/GLUT をラップした軽量な描画ライブラリ。ソリッド・ワイヤーフレームの各種 3D オブジェクトの作成・着色・変形・描画を簡潔に書ける。
 
 ## Build
 
@@ -9,6 +9,30 @@ make        # libgl.a を生成
 make clean  # .o を削除
 make fclean # libgl.a も削除
 ```
+
+## Directory Structure
+
+```
+libgl/
+├── libgl.h                  # 集約ヘッダ (これだけ include すれば OK)
+├── params/
+│   ├── vector/              # t_vec3, gl_vec3()
+│   ├── color/               # t_color, gl_color(), プリセットカラー
+│   └── transform/           # t_transform, gl_rotate/translate/scale()
+├── solids/                  # ソリッド (塗りつぶし) オブジェクト
+│   ├── line/
+│   ├── rect/
+│   ├── cube/
+│   ├── cone/
+│   └── cylinder/
+└── wires/                   # ワイヤーフレームオブジェクト
+    ├── rect/
+    ├── cube/
+    ├── cone/
+    └── cylinder/
+```
+
+各ディレクトリに専用ヘッダがあり、必要なものだけ個別に include することもできる。
 
 ## Usage
 
@@ -132,7 +156,9 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 
 ## API
 
-### Create
+### Solid Objects (`solids/`)
+
+#### Create
 
 | 関数 | 説明 |
 |---|---|
@@ -142,7 +168,7 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 | `gl_create_cone(origin, radius, height, slices)` | 円錐を作成 |
 | `gl_create_cylinder(origin, radius, height, slices)` | 円柱を作成 |
 
-### Color
+#### Color / Outline
 
 | 関数 | 説明 |
 |---|---|
@@ -157,15 +183,7 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 | `gl_color_cylinder(cyl, color)` | 円柱の色を設定 |
 | `gl_outline_cylinder(cyl, color)` | 円柱の枠線を設定 |
 
-### Transform
-
-| 関数 | 説明 |
-|---|---|
-| `gl_rotate(tf, angle)` | 回転 (x, y, z 度) |
-| `gl_translate(tf, offset)` | 平行移動 |
-| `gl_scale(tf, scale)` | 拡大縮小 |
-
-### Draw
+#### Draw
 
 | 関数 | 説明 |
 |---|---|
@@ -173,22 +191,68 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 | `gl_draw_rect(rect)` | 矩形を描画 |
 | `gl_draw_cube(cube)` | 立方体を描画 |
 | `gl_draw_cone(cone)` | 円錐を描画 |
-| `gl_draw_wire_cone(cone, slices, stacks)` | 円錐をワイヤーフレームで描画 |
 | `gl_draw_cylinder(cyl)` | 円柱を描画 |
-| `gl_draw_wire_cylinder(cyl)` | 円柱をワイヤーフレームで描画 |
-| `gl_draw_wire_rect(rect)` | 矩形をワイヤーフレームで描画 |
 
-### Utility
+### Wire Objects (`wires/`)
+
+独自の型 (`t_wire_rect`, `t_wire_cube`, `t_wire_cone`, `t_wire_cylinder`) を持つ。
+
+#### Create
+
+| 関数 | 説明 |
+|---|---|
+| `gl_create_wire_rect(origin, size)` | ワイヤー矩形を作成 |
+| `gl_create_wire_cube(origin, size)` | ワイヤー立方体を作成 |
+| `gl_create_wire_cone(origin, radius, height)` | ワイヤー円錐を作成 (slices=12, stacks=3) |
+| `gl_create_wire_cylinder(origin, radius, height)` | ワイヤー円柱を作成 (slices=12) |
+
+#### Color / Params
+
+| 関数 | 説明 |
+|---|---|
+| `gl_color_wire_rect(rect, color)` | 色を設定 |
+| `gl_color_wire_cube(cube, color)` | 色を設定 |
+| `gl_color_wire_cone(cone, color)` | 色を設定 |
+| `gl_slices_wire_cone(cone, slices)` | 分割数を変更 |
+| `gl_stacks_wire_cone(cone, stacks)` | 段数を変更 |
+| `gl_color_wire_cylinder(cyl, color)` | 色を設定 |
+| `gl_slices_wire_cylinder(cyl, slices)` | 分割数を変更 |
+
+#### Draw
+
+| 関数 | 説明 |
+|---|---|
+| `gl_draw_wire_rect(rect)` | ワイヤー矩形を描画 |
+| `gl_draw_wire_cube(cube)` | ワイヤー立方体を描画 |
+| `gl_draw_wire_cone(cone)` | ワイヤー円錐を描画 |
+| `gl_draw_wire_cylinder(cyl)` | ワイヤー円柱を描画 |
+
+### Params (`params/`)
+
+#### Vector
 
 | 関数 | 説明 |
 |---|---|
 | `gl_vec3(x, y, z)` | `t_vec3` を生成 |
+
+#### Color
+
+| 関数 | 説明 |
+|---|---|
 | `gl_color(r, g, b)` | `t_color` を生成 |
-| `gl_red()` / `gl_green()` / `gl_blue()` ... | プリセットカラー |
+| `gl_red()` ... `gl_black()` | プリセットカラー |
 
 プリセットカラー: `gl_red`, `gl_green`, `gl_blue`, `gl_yellow`, `gl_cyan`, `gl_magenta`, `gl_white`, `gl_black`
 
 マクロ版 (`RED`, `GREEN`, `BLUE` ...) は `gl_color()` の引数として直接展開できる: `gl_color(RED)`
+
+#### Transform
+
+| 関数 | 説明 |
+|---|---|
+| `gl_rotate(tf, angle)` | 回転 (x, y, z 度) |
+| `gl_translate(tf, offset)` | 平行移動 |
+| `gl_scale(tf, scale)` | 拡大縮小 |
 
 ## Contributing
 
