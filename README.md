@@ -14,6 +14,50 @@ make fclean # libgl.a も削除
 
 `#include "libgl.h"` するだけで OpenGL/GLUT ヘッダも読み込まれる。
 
+<details>
+<summary>Before (raw OpenGL)</summary>
+
+```c
+#include <GLUT/glut.h>
+#include <OpenGL/gl.h>
+
+void display(void)
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    // 矩形を描く
+    glColor3f(0.2f, 0.6f, 1.0f);
+    glBegin(GL_QUADS);
+    glVertex3f(-0.3f, -0.3f, 0.0f);
+    glVertex3f(0.3f, -0.3f, 0.0f);
+    glVertex3f(0.3f, 0.3f, 0.0f);
+    glVertex3f(-0.3f, 0.3f, 0.0f);
+    glEnd();
+
+    // 立方体を描く (24頂点を手書き...)
+    glPushMatrix();
+    glRotatef(30, 1, 0, 0);
+    glRotatef(45, 0, 1, 0);
+    glColor3f(0.0f, 1.0f, 0.0f);
+    glBegin(GL_QUADS);
+    // front face
+    glVertex3f(-0.2f, -0.2f, 0.2f);
+    glVertex3f(0.2f, -0.2f, 0.2f);
+    glVertex3f(0.2f, 0.2f, 0.2f);
+    glVertex3f(-0.2f, 0.2f, 0.2f);
+    // ... 残り5面も同様に記述
+    glEnd();
+    glPopMatrix();
+
+    glutSwapBuffers();
+}
+```
+
+</details>
+
+<details>
+<summary>After (libgl)</summary>
+
 ```c
 #include "libgl.h"
 
@@ -21,15 +65,9 @@ void display(void)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // 線を描く
-    t_line line = gl_create_line(gl_vec3(-0.5, 0, 0), gl_vec3(0.5, 0, 0));
-    gl_color_line(&line, gl_red());
-    gl_draw_line(&line);
-
     // 矩形を描く
     t_rect rect = gl_create_rect(gl_vec3(-0.3, -0.3, 0), gl_vec3(0.6, 0.6, 0));
     gl_color_rect(&rect, gl_color(0.2, 0.6, 1.0));
-    gl_outline_rect(&rect, gl_white());
     gl_draw_rect(&rect);
 
     // 立方体を描く
@@ -41,6 +79,8 @@ void display(void)
     glutSwapBuffers();
 }
 ```
+
+</details>
 
 コンパイル:
 
