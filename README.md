@@ -14,8 +14,13 @@ make fclean # libgl.a も削除
 
 `#include "libgl.h"` するだけで OpenGL/GLUT ヘッダも読み込まれる。
 
-<details>
-<summary>Before (raw OpenGL)</summary>
+<table>
+<tr>
+<th>Before (raw OpenGL)</th>
+<th>After (libgl)</th>
+</tr>
+<tr>
+<td>
 
 ```c
 #include <GLUT/glut.h>
@@ -23,7 +28,8 @@ make fclean # libgl.a も削除
 
 void display(void)
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT
+            | GL_DEPTH_BUFFER_BIT);
 
     // 矩形を描く
     glColor3f(0.2f, 0.6f, 1.0f);
@@ -53,34 +59,41 @@ void display(void)
 }
 ```
 
-</details>
-
-<details>
-<summary>After (libgl)</summary>
+</td>
+<td>
 
 ```c
 #include "libgl.h"
 
 void display(void)
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT
+            | GL_DEPTH_BUFFER_BIT);
 
     // 矩形を描く
-    t_rect rect = gl_create_rect(gl_vec3(-0.3, -0.3, 0), gl_vec3(0.6, 0.6, 0));
-    gl_color_rect(&rect, gl_color(0.2, 0.6, 1.0));
+    t_rect rect = gl_create_rect(
+        gl_vec3(-0.3, -0.3, 0),
+        gl_vec3(0.6, 0.6, 0));
+    gl_color_rect(&rect,
+        gl_color(0.2, 0.6, 1.0));
     gl_draw_rect(&rect);
 
     // 立方体を描く
-    t_cube cube = gl_create_cube(gl_vec3(-0.2, -0.2, -0.2), gl_vec3(0.4, 0.4, 0.4));
+    t_cube cube = gl_create_cube(
+        gl_vec3(-0.2, -0.2, -0.2),
+        gl_vec3(0.4, 0.4, 0.4));
     gl_color_cube(&cube, gl_green());
-    gl_rotate(&cube.transform, gl_vec3(30, 45, 0));
+    gl_rotate(&cube.transform,
+        gl_vec3(30, 45, 0));
     gl_draw_cube(&cube);
 
     glutSwapBuffers();
 }
 ```
 
-</details>
+</td>
+</tr>
+</table>
 
 コンパイル:
 
