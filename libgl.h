@@ -119,6 +119,7 @@ void	gl_draw_line(t_line *line);
 void	gl_draw_rect(t_rect *rect);
 void	gl_draw_cube(t_cube *cube);
 void	gl_draw_cone(t_cone *cone);
+void	gl_draw_wire_cone(t_cone *cone);
 
 /* ========== utility ========== */
 
