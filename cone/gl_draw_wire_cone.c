@@ -1,6 +1,6 @@
 #include "libgl.h"
 
-void	gl_draw_wire_cone(t_cone *cone)
+void	gl_draw_wire_cone(t_cone *cone, int slices, int stacks)
 {
 	glPushMatrix();
 	glTranslatef(cone->transform.offset.x,
@@ -13,6 +13,6 @@ void	gl_draw_wire_cone(t_cone *cone)
 		cone->transform.scale.y, cone->transform.scale.z);
 	glColor3f(cone->color.r, cone->color.g, cone->color.b);
 	glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
-	glutWireCone(cone->radius, cone->height, cone->slices, cone->slices);
+	glutWireCone(cone->radius, cone->height, slices, stacks);
 	glPopMatrix();
 }
