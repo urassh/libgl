@@ -9,6 +9,7 @@ SRCS	=	line/gl_create_line.c \
 			rect/gl_color_rect.c \
 			rect/gl_outline_rect.c \
 			rect/gl_draw_rect.c \
+			rect/gl_draw_wire_rect.c \
 			cube/gl_create_cube.c \
 			cube/gl_color_cube.c \
 			cube/gl_colors_cube.c \
