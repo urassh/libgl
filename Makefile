@@ -23,7 +23,12 @@ SRCS	=	line/gl_create_line.c \
 			cone/gl_color_cone.c \
 			cone/gl_outline_cone.c \
 			cone/gl_draw_cone.c \
-			cone/gl_draw_wire_cone.c
+			cone/gl_draw_wire_cone.c \
+			cylinder/gl_create_cylinder.c \
+			cylinder/gl_color_cylinder.c \
+			cylinder/gl_outline_cylinder.c \
+			cylinder/gl_draw_cylinder.c \
+			cylinder/gl_draw_wire_cylinder.c
 
 OBJS	=	$(SRCS:.c=.o)
 

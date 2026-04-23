@@ -77,6 +77,18 @@ typedef struct s_cone
 	t_transform	transform;
 }	t_cone;
 
+typedef struct s_cylinder
+{
+	t_vec3		origin;
+	float		radius;
+	float		height;
+	int			slices;
+	t_color		color;
+	bool		has_outline;
+	t_color		outline_color;
+	t_transform	transform;
+}	t_cylinder;
+
 /* ========== color macros (3 floats) ========== */
 
 # define RED     1.0f, 0.0f, 0.0f
@@ -94,7 +106,9 @@ t_line	gl_create_line(t_vec3 start, t_vec3 end);
 t_rect	gl_create_rect(t_vec3 origin, t_vec3 size);
 t_cube	gl_create_cube(t_vec3 origin, t_vec3 size);
 
-t_cone	gl_create_cone(t_vec3 origin, float radius, float height, int slices);
+t_cone		gl_create_cone(t_vec3 origin, float radius, float height, int slices);
+t_cylinder	gl_create_cylinder(t_vec3 origin, float radius, float height,
+				int slices);
 
 /* ========== color ========== */
 
@@ -106,6 +120,8 @@ void	gl_outline_rect(t_rect *rect, t_color color);
 void	gl_outline_cube(t_cube *cube, t_color color);
 void	gl_color_cone(t_cone *cone, t_color color);
 void	gl_outline_cone(t_cone *cone, t_color color);
+void	gl_color_cylinder(t_cylinder *cyl, t_color color);
+void	gl_outline_cylinder(t_cylinder *cyl, t_color color);
 
 /* ========== transform ========== */
 
@@ -120,6 +136,8 @@ void	gl_draw_rect(t_rect *rect);
 void	gl_draw_cube(t_cube *cube);
 void	gl_draw_cone(t_cone *cone);
 void	gl_draw_wire_cone(t_cone *cone);
+void	gl_draw_cylinder(t_cylinder *cyl);
+void	gl_draw_wire_cylinder(t_cylinder *cyl);
 
 /* ========== utility ========== */
 
