@@ -14,6 +14,9 @@ make fclean # libgl.a も削除
 
 `#include "libgl.h"` するだけで OpenGL/GLUT ヘッダも読み込まれる。
 
+<details>
+<summary>Before / After を比較する</summary>
+
 <table>
 <tr>
 <th>Before (raw OpenGL)</th>
@@ -35,23 +38,47 @@ void display(void)
     glColor3f(0.2f, 0.6f, 1.0f);
     glBegin(GL_QUADS);
     glVertex3f(-0.3f, -0.3f, 0.0f);
-    glVertex3f(0.3f, -0.3f, 0.0f);
-    glVertex3f(0.3f, 0.3f, 0.0f);
-    glVertex3f(-0.3f, 0.3f, 0.0f);
+    glVertex3f( 0.3f, -0.3f, 0.0f);
+    glVertex3f( 0.3f,  0.3f, 0.0f);
+    glVertex3f(-0.3f,  0.3f, 0.0f);
     glEnd();
 
-    // 立方体を描く (24頂点を手書き...)
+    // 立方体を描く
     glPushMatrix();
     glRotatef(30, 1, 0, 0);
     glRotatef(45, 0, 1, 0);
     glColor3f(0.0f, 1.0f, 0.0f);
     glBegin(GL_QUADS);
-    // front face
-    glVertex3f(-0.2f, -0.2f, 0.2f);
-    glVertex3f(0.2f, -0.2f, 0.2f);
-    glVertex3f(0.2f, 0.2f, 0.2f);
-    glVertex3f(-0.2f, 0.2f, 0.2f);
-    // ... 残り5面も同様に記述
+    // front
+    glVertex3f(-0.2f, -0.2f,  0.2f);
+    glVertex3f( 0.2f, -0.2f,  0.2f);
+    glVertex3f( 0.2f,  0.2f,  0.2f);
+    glVertex3f(-0.2f,  0.2f,  0.2f);
+    // back
+    glVertex3f(-0.2f, -0.2f, -0.2f);
+    glVertex3f( 0.2f, -0.2f, -0.2f);
+    glVertex3f( 0.2f,  0.2f, -0.2f);
+    glVertex3f(-0.2f,  0.2f, -0.2f);
+    // top
+    glVertex3f(-0.2f,  0.2f, -0.2f);
+    glVertex3f( 0.2f,  0.2f, -0.2f);
+    glVertex3f( 0.2f,  0.2f,  0.2f);
+    glVertex3f(-0.2f,  0.2f,  0.2f);
+    // bottom
+    glVertex3f(-0.2f, -0.2f, -0.2f);
+    glVertex3f( 0.2f, -0.2f, -0.2f);
+    glVertex3f( 0.2f, -0.2f,  0.2f);
+    glVertex3f(-0.2f, -0.2f,  0.2f);
+    // right
+    glVertex3f( 0.2f, -0.2f, -0.2f);
+    glVertex3f( 0.2f, -0.2f,  0.2f);
+    glVertex3f( 0.2f,  0.2f,  0.2f);
+    glVertex3f( 0.2f,  0.2f, -0.2f);
+    // left
+    glVertex3f(-0.2f, -0.2f, -0.2f);
+    glVertex3f(-0.2f, -0.2f,  0.2f);
+    glVertex3f(-0.2f,  0.2f,  0.2f);
+    glVertex3f(-0.2f,  0.2f, -0.2f);
     glEnd();
     glPopMatrix();
 
@@ -94,6 +121,8 @@ void display(void)
 </td>
 </tr>
 </table>
+
+</details>
 
 コンパイル:
 
