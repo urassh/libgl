@@ -65,6 +65,18 @@ typedef struct s_cube
 	t_transform	transform;
 }	t_cube;
 
+typedef struct s_cone
+{
+	t_vec3		origin;
+	float		radius;
+	float		height;
+	int			slices;
+	t_color		color;
+	bool		has_outline;
+	t_color		outline_color;
+	t_transform	transform;
+}	t_cone;
+
 /* ========== color macros (3 floats) ========== */
 
 # define RED     1.0f, 0.0f, 0.0f
@@ -82,6 +94,8 @@ t_line	gl_create_line(t_vec3 start, t_vec3 end);
 t_rect	gl_create_rect(t_vec3 origin, t_vec3 size);
 t_cube	gl_create_cube(t_vec3 origin, t_vec3 size);
 
+t_cone	gl_create_cone(t_vec3 origin, float radius, float height, int slices);
+
 /* ========== color ========== */
 
 void	gl_color_line(t_line *line, t_color color);
@@ -90,6 +104,8 @@ void	gl_color_cube(t_cube *cube, t_color color);
 void	gl_colors_cube(t_cube *cube, t_color colors[6]);
 void	gl_outline_rect(t_rect *rect, t_color color);
 void	gl_outline_cube(t_cube *cube, t_color color);
+void	gl_color_cone(t_cone *cone, t_color color);
+void	gl_outline_cone(t_cone *cone, t_color color);
 
 /* ========== transform ========== */
 
@@ -102,6 +118,7 @@ void	gl_scale(t_transform *tf, t_vec3 scale);
 void	gl_draw_line(t_line *line);
 void	gl_draw_rect(t_rect *rect);
 void	gl_draw_cube(t_cube *cube);
+void	gl_draw_cone(t_cone *cone);
 
 /* ========== utility ========== */
 

@@ -18,7 +18,11 @@ SRCS	=	line/gl_create_line.c \
 			util/gl_colors.c \
 			util/gl_rotate.c \
 			util/gl_translate.c \
-			util/gl_scale.c
+			util/gl_scale.c \
+			cone/gl_create_cone.c \
+			cone/gl_color_cone.c \
+			cone/gl_outline_cone.c \
+			cone/gl_draw_cone.c
 
 OBJS	=	$(SRCS:.c=.o)
 
