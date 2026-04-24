@@ -36,6 +36,91 @@ void display(void)
 }
 ```
 
+<details>
+<summary>libgl なしで同じ描画を書いた場合</summary>
+
+```c
+#include <GLUT/glut.h>
+#include <OpenGL/gl.h>
+#include <math.h>
+
+void display(void)
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    // 立方体を描画
+    glPushMatrix();
+    glRotatef(30, 1, 0, 0);
+    glRotatef(45, 0, 1, 0);
+    glColor3f(0.0f, 1.0f, 0.0f);
+    glBegin(GL_QUADS);
+    // front
+    glVertex3f(0.0f, 0.0f, 1.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glVertex3f(1.0f, 1.0f, 1.0f);
+    glVertex3f(0.0f, 1.0f, 1.0f);
+    // back
+    glVertex3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 0.0f);
+    glVertex3f(1.0f, 1.0f, 0.0f);
+    glVertex3f(0.0f, 1.0f, 0.0f);
+    // top
+    glVertex3f(0.0f, 1.0f, 0.0f);
+    glVertex3f(1.0f, 1.0f, 0.0f);
+    glVertex3f(1.0f, 1.0f, 1.0f);
+    glVertex3f(0.0f, 1.0f, 1.0f);
+    // bottom
+    glVertex3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glVertex3f(0.0f, 0.0f, 1.0f);
+    // right
+    glVertex3f(1.0f, 0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glVertex3f(1.0f, 1.0f, 1.0f);
+    glVertex3f(1.0f, 1.0f, 0.0f);
+    // left
+    glVertex3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(0.0f, 0.0f, 1.0f);
+    glVertex3f(0.0f, 1.0f, 1.0f);
+    glVertex3f(0.0f, 1.0f, 0.0f);
+    glEnd();
+    glPopMatrix();
+
+    // ワイヤーフレームの円錐を描画
+    int slices = 12;
+    float radius = 0.5f;
+    float height = 1.0f;
+    glPushMatrix();
+    glTranslatef(2.0f, 0.0f, 0.0f);
+    glColor3f(1.0f, 1.0f, 0.0f);
+    // 底面の円
+    glBegin(GL_LINE_LOOP);
+    for (int i = 0; i < slices; i++)
+    {
+        float angle = 2.0f * M_PI * i / slices;
+        glVertex3f(radius * cosf(angle), 0.0f,
+                   radius * sinf(angle));
+    }
+    glEnd();
+    // 頂点への母線
+    glBegin(GL_LINES);
+    for (int i = 0; i < slices; i++)
+    {
+        float angle = 2.0f * M_PI * i / slices;
+        glVertex3f(radius * cosf(angle), 0.0f,
+                   radius * sinf(angle));
+        glVertex3f(0.0f, height, 0.0f);
+    }
+    glEnd();
+    glPopMatrix();
+
+    glutSwapBuffers();
+}
+```
+
+</details>
+
 コンパイル:
 
 ```sh
