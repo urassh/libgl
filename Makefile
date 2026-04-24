@@ -42,7 +42,10 @@ SRCS	=	solids/line/gl_create_line.c \
 			wires/cylinder/gl_create_wire_cylinder.c \
 			wires/cylinder/gl_color_wire_cylinder.c \
 			wires/cylinder/gl_slices_wire_cylinder.c \
-			wires/cylinder/gl_draw_wire_cylinder.c
+			wires/cylinder/gl_draw_wire_cylinder.c \
+			group/gl_create_group.c \
+			group/gl_group_add.c \
+			group/gl_draw_group.c
 
 OBJS	=	$(SRCS:.c=.o)
 

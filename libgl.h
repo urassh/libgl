@@ -26,6 +26,10 @@
 # include "solids/cone/gl_cone.h"
 # include "solids/cylinder/gl_cylinder.h"
 
+/* ========== group ========== */
+
+# include "group/gl_group.h"
+
 /* ========== wire objects ========== */
 
 # include "wires/rect/gl_wire_rect.h"
