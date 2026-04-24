@@ -41,4 +41,10 @@
 # include "wires/cone/gl_wire_cone.h"
 # include "wires/cylinder/gl_wire_cylinder.h"
 
+/* ========== 2d objects ========== */
+
+# include "2d/line/gl_2d_line.h"
+# include "2d/rect/gl_2d_rect.h"
+# include "2d/wire_rect/gl_2d_wire_rect.h"
+
 #endif

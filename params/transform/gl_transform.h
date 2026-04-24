@@ -14,4 +14,15 @@ void	gl_rotate(t_transform *tf, t_vec3 angle);
 void	gl_translate(t_transform *tf, t_vec3 offset);
 void	gl_scale(t_transform *tf, t_vec3 scale);
 
+typedef struct s_2d_transform
+{
+	float	rotation;
+	t_vec2	offset;
+	t_vec2	scale;
+}	t_2d_transform;
+
+void	gl_2d_rotate(t_2d_transform *tf, float angle);
+void	gl_2d_translate(t_2d_transform *tf, t_vec2 offset);
+void	gl_2d_scale(t_2d_transform *tf, t_vec2 scale);
+
 #endif
