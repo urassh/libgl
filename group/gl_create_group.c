@@ -1,3 +1,4 @@
+#include <string.h>
 #include "libgl.h"
 
 t_group	gl_create_group(t_vec3 origin)
@@ -17,5 +18,15 @@ t_group	gl_create_group(t_vec3 origin)
 		group.children[i].draw = NULL;
 		i++;
 	}
+	strlcpy(group.label, "group", GL_LABEL_MAX);
+	return (group);
+}
+
+t_group	gl_create_group_with_label(t_vec3 origin, const char *label)
+{
+	t_group	group;
+
+	group = gl_create_group(origin);
+	strlcpy(group.label, label, GL_LABEL_MAX);
 	return (group);
 }

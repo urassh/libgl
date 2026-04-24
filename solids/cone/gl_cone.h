@@ -8,6 +8,7 @@
 
 typedef struct s_cone
 {
+	char		label[32];
 	t_vec3		origin;
 	float		radius;
 	float		height;
@@ -19,8 +20,13 @@ typedef struct s_cone
 }	t_cone;
 
 t_cone	gl_create_cone(t_vec3 origin, float radius, float height, int slices);
+t_cone	gl_create_cone_with_label(t_vec3 origin, float radius, float height,
+			int slices, const char *label);
 t_cone	*gl_alloc_cone(t_vec3 origin, float radius, float height, int slices);
+t_cone	*gl_alloc_cone_with_label(t_vec3 origin, float radius, float height,
+			int slices, const char *label);
 void	gl_free_cone(t_cone *cone);
+bool	gl_label_cone(t_cone *cone, const char *label);
 void	gl_color_cone(t_cone *cone, t_color color);
 void	gl_outline_cone(t_cone *cone, t_color color);
 void	gl_draw_cone(t_cone *cone);

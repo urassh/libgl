@@ -12,6 +12,10 @@
 #  include "GL/glu.h"
 # endif
 
+/* ========== label ========== */
+
+# define GL_LABEL_MAX 32
+
 /* ========== params ========== */
 
 # include "params/vector/gl_vector.h"

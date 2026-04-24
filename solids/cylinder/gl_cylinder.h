@@ -8,6 +8,7 @@
 
 typedef struct s_cylinder
 {
+	char		label[32];
 	t_vec3		origin;
 	float		radius;
 	float		height;
@@ -20,9 +21,14 @@ typedef struct s_cylinder
 
 t_cylinder	gl_create_cylinder(t_vec3 origin, float radius, float height,
 				int slices);
+t_cylinder	gl_create_cylinder_with_label(t_vec3 origin, float radius,
+				float height, int slices, const char *label);
 t_cylinder	*gl_alloc_cylinder(t_vec3 origin, float radius, float height,
 				int slices);
+t_cylinder	*gl_alloc_cylinder_with_label(t_vec3 origin, float radius,
+				float height, int slices, const char *label);
 void		gl_free_cylinder(t_cylinder *cyl);
+bool		gl_label_cylinder(t_cylinder *cyl, const char *label);
 void		gl_color_cylinder(t_cylinder *cyl, t_color color);
 void		gl_outline_cylinder(t_cylinder *cyl, t_color color);
 void		gl_draw_cylinder(t_cylinder *cyl);
