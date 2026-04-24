@@ -25,11 +25,12 @@ libgl/
 │   ├── cube/
 │   ├── cone/
 │   └── cylinder/
-└── wires/                   # ワイヤーフレームオブジェクト
-    ├── rect/
-    ├── cube/
-    ├── cone/
-    └── cylinder/
+├── wires/                   # ワイヤーフレームオブジェクト
+│   ├── rect/
+│   ├── cube/
+│   ├── cone/
+│   └── cylinder/
+└── group/                   # オブジェクトグループ (階層変換)
 ```
 
 各ディレクトリに専用ヘッダがあり、必要なものだけ個別に include することもできる。
@@ -226,6 +227,42 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 | `gl_draw_wire_cube(cube)` | ワイヤー立方体を描画 |
 | `gl_draw_wire_cone(cone)` | ワイヤー円錐を描画 |
 | `gl_draw_wire_cylinder(cyl)` | ワイヤー円柱を描画 |
+
+### Group (`group/`)
+
+複数のオブジェクトをグループ化し、まとめて変換・描画する。グループの origin や transform を変更すると、子オブジェクトの座標も連動する。OpenGL の行列スタックを利用しているため、グループのネスト (グループの中にグループ) も可能。
+
+#### 型
+
+| 型 | 説明 |
+|---|---|
+| `t_group_child` | 子要素 (`void *object` + 描画関数ポインタ) |
+| `t_group` | グループ本体 (`origin`, `transform`, 子要素配列, `count`) |
+
+#### API
+
+| 関数 | 説明 |
+|---|---|
+| `gl_create_group(origin)` | グループを作成 |
+| `gl_group_add(group, object, draw_fn)` | 子オブジェクトを追加 (最大 32 個) |
+| `gl_draw_group(group)` | グループ全体を描画 |
+
+#### 使用例
+
+```c
+t_wire_cube  cube = gl_create_wire_cube(gl_vec3(0, 0, 0), gl_vec3(1, 1, 1));
+t_wire_cone  cone = gl_create_wire_cone(gl_vec3(0, 2, 0), 0.5, 1.0);
+
+t_group group = gl_create_group(gl_vec3(0, 0, 0));
+gl_group_add(&group, &cube, (void (*)(void *))gl_draw_wire_cube);
+gl_group_add(&group, &cone, (void (*)(void *))gl_draw_wire_cone);
+
+// グループごと移動 → cube と cone が一緒に動く
+gl_translate(&group.transform, gl_vec3(3, 0, 0));
+gl_draw_group(&group);
+```
+
+> **注意:** `t_group` は子オブジェクトへのポインタを保持するだけで、所有はしない。子オブジェクトはグループより長く生存させる必要がある。
 
 ### Params (`params/`)
 
