@@ -38,11 +38,15 @@ SRCS	=	solids/line/gl_new_line.c \
 			solids/cylinder/gl_outline_cylinder.c \
 			solids/cylinder/gl_draw_cylinder.c \
 			params/vector/gl_vec3.c \
+			params/vector/gl_vec2.c \
 			params/color/gl_color.c \
 			params/color/gl_colors.c \
 			params/transform/gl_rotate.c \
 			params/transform/gl_translate.c \
 			params/transform/gl_scale.c \
+			params/transform/gl_2d_rotate.c \
+			params/transform/gl_2d_translate.c \
+			params/transform/gl_2d_scale.c \
 			wires/rect/gl_new_wire_rect.c \
 			wires/rect/gl_alloc_wire_rect.c \
 			wires/rect/gl_free_wire_rect.c \
@@ -76,7 +80,26 @@ SRCS	=	solids/line/gl_new_line.c \
 			group/gl_label_group.c \
 			group/gl_group_add.c \
 			group/gl_group_find.c \
-			group/gl_draw_group.c
+			group/gl_draw_group.c \
+			2d/line/gl_new_2d_line.c \
+			2d/line/gl_alloc_2d_line.c \
+			2d/line/gl_free_2d_line.c \
+			2d/line/gl_label_2d_line.c \
+			2d/line/gl_color_2d_line.c \
+			2d/line/gl_draw_2d_line.c \
+			2d/rect/gl_new_2d_rect.c \
+			2d/rect/gl_alloc_2d_rect.c \
+			2d/rect/gl_free_2d_rect.c \
+			2d/rect/gl_label_2d_rect.c \
+			2d/rect/gl_color_2d_rect.c \
+			2d/rect/gl_outline_2d_rect.c \
+			2d/rect/gl_draw_2d_rect.c \
+			2d/wire_rect/gl_new_2d_wire_rect.c \
+			2d/wire_rect/gl_alloc_2d_wire_rect.c \
+			2d/wire_rect/gl_free_2d_wire_rect.c \
+			2d/wire_rect/gl_label_2d_wire_rect.c \
+			2d/wire_rect/gl_color_2d_wire_rect.c \
+			2d/wire_rect/gl_draw_2d_wire_rect.c
 
 OBJS	=	$(SRCS:.c=.o)
 
