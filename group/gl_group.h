@@ -7,7 +7,7 @@
 # include "params/vector/gl_vector.h"
 # include "params/transform/gl_transform.h"
 
-# define GROUP_MAX_CHILDREN 32
+# define GROUP_MAX_CHILDREN 64
 
 typedef struct s_group_child
 {
