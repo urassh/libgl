@@ -6,6 +6,7 @@ t_cube	gl_new_cube(t_vec3 origin, t_vec3 size)
 	t_cube	cube;
 	int		i;
 
+	cube.type = GL_TYPE_CUBE;
 	strlcpy(cube.label, "cube", GL_LABEL_MAX);
 	cube.origin = origin;
 	cube.size = size;

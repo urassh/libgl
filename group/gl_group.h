@@ -3,6 +3,7 @@
 
 # include <stdbool.h>
 # include <stddef.h>
+# include "params/object_type/gl_object_type.h"
 # include "params/vector/gl_vector.h"
 # include "params/transform/gl_transform.h"
 
@@ -16,6 +17,7 @@ typedef struct s_group_child
 
 typedef struct s_group
 {
+	t_object_type	type;
 	char			label[32];
 	t_vec3			origin;
 	t_transform		transform;

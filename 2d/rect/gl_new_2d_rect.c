@@ -5,6 +5,7 @@ t_2d_rect	gl_new_2d_rect(t_vec2 origin, t_vec2 size)
 {
 	t_2d_rect	rect;
 
+	rect.type = GL_TYPE_2D_RECT;
 	strlcpy(rect.label, "2d_rect", GL_LABEL_MAX);
 	rect.origin = origin;
 	rect.size = size;

@@ -5,6 +5,7 @@ t_wire_cube	gl_new_wire_cube(t_vec3 origin, t_vec3 size)
 {
 	t_wire_cube	cube;
 
+	cube.type = GL_TYPE_WIRE_CUBE;
 	strlcpy(cube.label, "wire_cube", GL_LABEL_MAX);
 	cube.origin = origin;
 	cube.size = size;

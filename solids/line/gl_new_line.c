@@ -5,6 +5,7 @@ t_line	gl_new_line(t_vec3 start, t_vec3 end)
 {
 	t_line	line;
 
+	line.type = GL_TYPE_LINE;
 	strlcpy(line.label, "line", GL_LABEL_MAX);
 	line.start = start;
 	line.end = end;

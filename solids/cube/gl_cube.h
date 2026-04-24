@@ -2,13 +2,15 @@
 # define GL_CUBE_H
 
 # include <stdbool.h>
+# include "params/object_type/gl_object_type.h"
 # include "params/vector/gl_vector.h"
 # include "params/color/gl_color.h"
 # include "params/transform/gl_transform.h"
 
 typedef struct s_cube
 {
-	char		label[32];
+	t_object_type	type;
+	char			label[32];
 	t_vec3		origin;
 	t_vec3		size;
 	t_color		colors[6];

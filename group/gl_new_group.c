@@ -6,6 +6,7 @@ t_group	gl_new_group(t_vec3 origin)
 	t_group	group;
 	int		i;
 
+	group.type = GL_TYPE_GROUP;
 	strlcpy(group.label, "group", GL_LABEL_MAX);
 	group.origin = origin;
 	group.transform.rotation = gl_vec3(0, 0, 0);

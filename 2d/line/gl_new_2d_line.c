@@ -5,6 +5,7 @@ t_2d_line	gl_new_2d_line(t_vec2 start, t_vec2 end)
 {
 	t_2d_line	line;
 
+	line.type = GL_TYPE_2D_LINE;
 	strlcpy(line.label, "2d_line", GL_LABEL_MAX);
 	line.start = start;
 	line.end = end;

@@ -18,6 +18,7 @@
 
 /* ========== params ========== */
 
+# include "params/object_type/gl_object_type.h"
 # include "params/vector/gl_vector.h"
 # include "params/color/gl_color.h"
 # include "params/transform/gl_transform.h"

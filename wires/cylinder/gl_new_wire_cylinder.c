@@ -6,6 +6,7 @@ t_wire_cylinder	gl_new_wire_cylinder(t_vec3 origin, float radius,
 {
 	t_wire_cylinder	cyl;
 
+	cyl.type = GL_TYPE_WIRE_CYLINDER;
 	strlcpy(cyl.label, "wire_cylinder", GL_LABEL_MAX);
 	cyl.origin = origin;
 	cyl.radius = radius;
