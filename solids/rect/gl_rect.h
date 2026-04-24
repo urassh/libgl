@@ -17,6 +17,8 @@ typedef struct s_rect
 }	t_rect;
 
 t_rect	gl_create_rect(t_vec3 origin, t_vec3 size);
+t_rect	*gl_alloc_rect(t_vec3 origin, t_vec3 size);
+void	gl_free_rect(t_rect *rect);
 void	gl_color_rect(t_rect *rect, t_color color);
 void	gl_outline_rect(t_rect *rect, t_color color);
 void	gl_draw_rect(t_rect *rect);

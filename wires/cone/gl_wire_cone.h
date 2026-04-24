@@ -17,6 +17,8 @@ typedef struct s_wire_cone
 }	t_wire_cone;
 
 t_wire_cone	gl_create_wire_cone(t_vec3 origin, float radius, float height);
+t_wire_cone	*gl_alloc_wire_cone(t_vec3 origin, float radius, float height);
+void		gl_free_wire_cone(t_wire_cone *cone);
 void		gl_color_wire_cone(t_wire_cone *cone, t_color color);
 void		gl_slices_wire_cone(t_wire_cone *cone, int slices);
 void		gl_stacks_wire_cone(t_wire_cone *cone, int stacks);
