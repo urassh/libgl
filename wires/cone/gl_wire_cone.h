@@ -8,6 +8,7 @@
 
 typedef struct s_wire_cone
 {
+	char		label[32];
 	t_vec3		origin;
 	float		radius;
 	float		height;
@@ -15,7 +16,6 @@ typedef struct s_wire_cone
 	int			stacks;
 	t_color		color;
 	t_transform	transform;
-	char		label[32];
 }	t_wire_cone;
 
 t_wire_cone	gl_create_wire_cone(t_vec3 origin, float radius, float height);

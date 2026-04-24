@@ -8,11 +8,11 @@
 
 typedef struct s_line
 {
+	char		label[32];
 	t_vec3		start;
 	t_vec3		end;
 	t_color		color;
 	t_transform	transform;
-	char		label[32];
 }	t_line;
 
 t_line	gl_create_line(t_vec3 start, t_vec3 end);

@@ -8,6 +8,7 @@
 
 typedef struct s_cylinder
 {
+	char		label[32];
 	t_vec3		origin;
 	float		radius;
 	float		height;
@@ -16,7 +17,6 @@ typedef struct s_cylinder
 	bool		has_outline;
 	t_color		outline_color;
 	t_transform	transform;
-	char		label[32];
 }	t_cylinder;
 
 t_cylinder	gl_create_cylinder(t_vec3 origin, float radius, float height,

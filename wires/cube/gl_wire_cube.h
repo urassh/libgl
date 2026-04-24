@@ -8,11 +8,11 @@
 
 typedef struct s_wire_cube
 {
+	char		label[32];
 	t_vec3		origin;
 	t_vec3		size;
 	t_color		color;
 	t_transform	transform;
-	char		label[32];
 }	t_wire_cube;
 
 t_wire_cube	gl_create_wire_cube(t_vec3 origin, t_vec3 size);

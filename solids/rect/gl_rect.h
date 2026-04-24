@@ -8,13 +8,13 @@
 
 typedef struct s_rect
 {
+	char		label[32];
 	t_vec3		origin;
 	t_vec3		size;
 	t_color		color;
 	bool		has_outline;
 	t_color		outline_color;
 	t_transform	transform;
-	char		label[32];
 }	t_rect;
 
 t_rect	gl_create_rect(t_vec3 origin, t_vec3 size);

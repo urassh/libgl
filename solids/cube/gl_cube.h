@@ -8,13 +8,13 @@
 
 typedef struct s_cube
 {
+	char		label[32];
 	t_vec3		origin;
 	t_vec3		size;
 	t_color		colors[6];
 	bool		has_outline;
 	t_color		outline_color;
 	t_transform	transform;
-	char		label[32];
 }	t_cube;
 
 t_cube	gl_create_cube(t_vec3 origin, t_vec3 size);

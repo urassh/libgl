@@ -8,6 +8,7 @@
 
 typedef struct s_cone
 {
+	char		label[32];
 	t_vec3		origin;
 	float		radius;
 	float		height;
@@ -16,7 +17,6 @@ typedef struct s_cone
 	bool		has_outline;
 	t_color		outline_color;
 	t_transform	transform;
-	char		label[32];
 }	t_cone;
 
 t_cone	gl_create_cone(t_vec3 origin, float radius, float height, int slices);

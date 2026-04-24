@@ -75,6 +75,7 @@ SRCS	=	solids/line/gl_create_line.c \
 			group/gl_free_group.c \
 			group/gl_label_group.c \
 			group/gl_group_add.c \
+			group/gl_group_find.c \
 			group/gl_draw_group.c
 
 OBJS	=	$(SRCS:.c=.o)

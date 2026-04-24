@@ -8,13 +8,13 @@
 
 typedef struct s_wire_cylinder
 {
+	char		label[32];
 	t_vec3		origin;
 	float		radius;
 	float		height;
 	int			slices;
 	t_color		color;
 	t_transform	transform;
-	char		label[32];
 }	t_wire_cylinder;
 
 t_wire_cylinder	gl_create_wire_cylinder(t_vec3 origin, float radius,
