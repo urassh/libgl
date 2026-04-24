@@ -1,6 +1,7 @@
 #ifndef GL_GROUP_H
 # define GL_GROUP_H
 
+# include <stdbool.h>
 # include <stddef.h>
 # include "params/vector/gl_vector.h"
 # include "params/transform/gl_transform.h"
@@ -19,11 +20,15 @@ typedef struct s_group
 	t_transform		transform;
 	t_group_child	children[GROUP_MAX_CHILDREN];
 	int				count;
+	char			label[32];
 }	t_group;
 
 t_group	gl_create_group(t_vec3 origin);
+t_group	gl_create_group_with_label(t_vec3 origin, const char *label);
 t_group	*gl_alloc_group(t_vec3 origin);
+t_group	*gl_alloc_group_with_label(t_vec3 origin, const char *label);
 void	gl_free_group(t_group *group);
+bool	gl_label_group(t_group *group, const char *label);
 void	gl_group_add(t_group *group, void *object, void (*draw)(void *));
 void	gl_draw_group(t_group *group);
 

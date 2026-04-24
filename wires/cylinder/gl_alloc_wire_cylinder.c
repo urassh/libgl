@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "libgl.h"
 
 t_wire_cylinder	*gl_alloc_wire_cylinder(t_vec3 origin, float radius,
@@ -10,5 +11,17 @@ t_wire_cylinder	*gl_alloc_wire_cylinder(t_vec3 origin, float radius,
 	if (!cyl)
 		return (NULL);
 	*cyl = gl_create_wire_cylinder(origin, radius, height);
+	return (cyl);
+}
+
+t_wire_cylinder	*gl_alloc_wire_cylinder_with_label(t_vec3 origin, float radius,
+					float height, const char *label)
+{
+	t_wire_cylinder	*cyl;
+
+	cyl = gl_alloc_wire_cylinder(origin, radius, height);
+	if (!cyl)
+		return (NULL);
+	strlcpy(cyl->label, label, GL_LABEL_MAX);
 	return (cyl);
 }
