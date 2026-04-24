@@ -5,6 +5,7 @@ t_wire_rect	gl_new_wire_rect(t_vec3 origin, t_vec3 size)
 {
 	t_wire_rect	rect;
 
+	rect.type = GL_TYPE_WIRE_RECT;
 	strlcpy(rect.label, "wire_rect", GL_LABEL_MAX);
 	rect.origin = origin;
 	rect.size = size;

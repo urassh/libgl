@@ -5,6 +5,7 @@ t_wire_cone	gl_new_wire_cone(t_vec3 origin, float radius, float height)
 {
 	t_wire_cone	cone;
 
+	cone.type = GL_TYPE_WIRE_CONE;
 	strlcpy(cone.label, "wire_cone", GL_LABEL_MAX);
 	cone.origin = origin;
 	cone.radius = radius;

@@ -6,6 +6,7 @@ t_cylinder	gl_new_cylinder(t_vec3 origin, float radius, float height,
 {
 	t_cylinder	cyl;
 
+	cyl.type = GL_TYPE_CYLINDER;
 	strlcpy(cyl.label, "cylinder", GL_LABEL_MAX);
 	cyl.origin = origin;
 	cyl.radius = radius;

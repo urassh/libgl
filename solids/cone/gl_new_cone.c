@@ -5,6 +5,7 @@ t_cone	gl_new_cone(t_vec3 origin, float radius, float height, int slices)
 {
 	t_cone	cone;
 
+	cone.type = GL_TYPE_CONE;
 	strlcpy(cone.label, "cone", GL_LABEL_MAX);
 	cone.origin = origin;
 	cone.radius = radius;

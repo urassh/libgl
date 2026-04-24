@@ -2,12 +2,14 @@
 # define GL_2D_WIRE_RECT_H
 
 # include <stdbool.h>
+# include "params/object_type/gl_object_type.h"
 # include "params/vector/gl_vector.h"
 # include "params/color/gl_color.h"
 # include "params/transform/gl_transform.h"
 
 typedef struct s_2d_wire_rect
 {
+	t_object_type	type;
 	char			label[32];
 	t_vec2			origin;
 	t_vec2			size;

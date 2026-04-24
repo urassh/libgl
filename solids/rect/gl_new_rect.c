@@ -5,6 +5,7 @@ t_rect	gl_new_rect(t_vec3 origin, t_vec3 size)
 {
 	t_rect	rect;
 
+	rect.type = GL_TYPE_RECT;
 	strlcpy(rect.label, "rect", GL_LABEL_MAX);
 	rect.origin = origin;
 	rect.size = size;
