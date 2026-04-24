@@ -9,7 +9,7 @@ t_wire_cone	*gl_alloc_wire_cone(t_vec3 origin, float radius, float height)
 	cone = (t_wire_cone *)malloc(sizeof(t_wire_cone));
 	if (!cone)
 		return (NULL);
-	*cone = gl_create_wire_cone(origin, radius, height);
+	*cone = gl_new_wire_cone(origin, radius, height);
 	return (cone);
 }
 
@@ -21,6 +21,7 @@ t_wire_cone	*gl_alloc_wire_cone_with_label(t_vec3 origin, float radius,
 	cone = gl_alloc_wire_cone(origin, radius, height);
 	if (!cone)
 		return (NULL);
-	strlcpy(cone->label, label, GL_LABEL_MAX);
+	if (strlen(label) < GL_LABEL_MAX)
+		strlcpy(cone->label, label, GL_LABEL_MAX);
 	return (cone);
 }

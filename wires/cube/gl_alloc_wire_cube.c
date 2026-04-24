@@ -9,7 +9,7 @@ t_wire_cube	*gl_alloc_wire_cube(t_vec3 origin, t_vec3 size)
 	cube = (t_wire_cube *)malloc(sizeof(t_wire_cube));
 	if (!cube)
 		return (NULL);
-	*cube = gl_create_wire_cube(origin, size);
+	*cube = gl_new_wire_cube(origin, size);
 	return (cube);
 }
 
@@ -21,6 +21,7 @@ t_wire_cube	*gl_alloc_wire_cube_with_label(t_vec3 origin, t_vec3 size,
 	cube = gl_alloc_wire_cube(origin, size);
 	if (!cube)
 		return (NULL);
-	strlcpy(cube->label, label, GL_LABEL_MAX);
+	if (strlen(label) < GL_LABEL_MAX)
+		strlcpy(cube->label, label, GL_LABEL_MAX);
 	return (cube);
 }

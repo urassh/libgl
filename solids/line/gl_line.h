@@ -15,8 +15,8 @@ typedef struct s_line
 	t_transform	transform;
 }	t_line;
 
-t_line	gl_create_line(t_vec3 start, t_vec3 end);
-t_line	gl_create_line_with_label(t_vec3 start, t_vec3 end,
+t_line	gl_new_line(t_vec3 start, t_vec3 end);
+t_line	gl_new_line_with_label(t_vec3 start, t_vec3 end,
 			const char *label);
 t_line	*gl_alloc_line(t_vec3 start, t_vec3 end);
 t_line	*gl_alloc_line_with_label(t_vec3 start, t_vec3 end,

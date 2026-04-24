@@ -15,8 +15,8 @@ typedef struct s_wire_rect
 	t_transform	transform;
 }	t_wire_rect;
 
-t_wire_rect	gl_create_wire_rect(t_vec3 origin, t_vec3 size);
-t_wire_rect	gl_create_wire_rect_with_label(t_vec3 origin, t_vec3 size,
+t_wire_rect	gl_new_wire_rect(t_vec3 origin, t_vec3 size);
+t_wire_rect	gl_new_wire_rect_with_label(t_vec3 origin, t_vec3 size,
 				const char *label);
 t_wire_rect	*gl_alloc_wire_rect(t_vec3 origin, t_vec3 size);
 t_wire_rect	*gl_alloc_wire_rect_with_label(t_vec3 origin, t_vec3 size,

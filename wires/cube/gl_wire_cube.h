@@ -15,8 +15,8 @@ typedef struct s_wire_cube
 	t_transform	transform;
 }	t_wire_cube;
 
-t_wire_cube	gl_create_wire_cube(t_vec3 origin, t_vec3 size);
-t_wire_cube	gl_create_wire_cube_with_label(t_vec3 origin, t_vec3 size,
+t_wire_cube	gl_new_wire_cube(t_vec3 origin, t_vec3 size);
+t_wire_cube	gl_new_wire_cube_with_label(t_vec3 origin, t_vec3 size,
 				const char *label);
 t_wire_cube	*gl_alloc_wire_cube(t_vec3 origin, t_vec3 size);
 t_wire_cube	*gl_alloc_wire_cube_with_label(t_vec3 origin, t_vec3 size,

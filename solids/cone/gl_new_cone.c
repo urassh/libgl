@@ -1,10 +1,11 @@
 #include <string.h>
 #include "libgl.h"
 
-t_cone	gl_create_cone(t_vec3 origin, float radius, float height, int slices)
+t_cone	gl_new_cone(t_vec3 origin, float radius, float height, int slices)
 {
 	t_cone	cone;
 
+	strlcpy(cone.label, "cone", GL_LABEL_MAX);
 	cone.origin = origin;
 	cone.radius = radius;
 	cone.height = height;
@@ -14,16 +15,16 @@ t_cone	gl_create_cone(t_vec3 origin, float radius, float height, int slices)
 	cone.transform.rotation = gl_vec3(0, 0, 0);
 	cone.transform.offset = gl_vec3(0, 0, 0);
 	cone.transform.scale = gl_vec3(1, 1, 1);
-	strlcpy(cone.label, "cone", GL_LABEL_MAX);
 	return (cone);
 }
 
-t_cone	gl_create_cone_with_label(t_vec3 origin, float radius, float height,
+t_cone	gl_new_cone_with_label(t_vec3 origin, float radius, float height,
 			int slices, const char *label)
 {
 	t_cone	cone;
 
-	cone = gl_create_cone(origin, radius, height, slices);
-	strlcpy(cone.label, label, GL_LABEL_MAX);
+	cone = gl_new_cone(origin, radius, height, slices);
+	if (strlen(label) < GL_LABEL_MAX)
+		strlcpy(cone.label, label, GL_LABEL_MAX);
 	return (cone);
 }

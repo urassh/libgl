@@ -18,8 +18,8 @@ typedef struct s_wire_cone
 	t_transform	transform;
 }	t_wire_cone;
 
-t_wire_cone	gl_create_wire_cone(t_vec3 origin, float radius, float height);
-t_wire_cone	gl_create_wire_cone_with_label(t_vec3 origin, float radius,
+t_wire_cone	gl_new_wire_cone(t_vec3 origin, float radius, float height);
+t_wire_cone	gl_new_wire_cone_with_label(t_vec3 origin, float radius,
 				float height, const char *label);
 t_wire_cone	*gl_alloc_wire_cone(t_vec3 origin, float radius, float height);
 t_wire_cone	*gl_alloc_wire_cone_with_label(t_vec3 origin, float radius,

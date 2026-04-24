@@ -17,9 +17,9 @@ typedef struct s_wire_cylinder
 	t_transform	transform;
 }	t_wire_cylinder;
 
-t_wire_cylinder	gl_create_wire_cylinder(t_vec3 origin, float radius,
+t_wire_cylinder	gl_new_wire_cylinder(t_vec3 origin, float radius,
 					float height);
-t_wire_cylinder	gl_create_wire_cylinder_with_label(t_vec3 origin, float radius,
+t_wire_cylinder	gl_new_wire_cylinder_with_label(t_vec3 origin, float radius,
 					float height, const char *label);
 t_wire_cylinder	*gl_alloc_wire_cylinder(t_vec3 origin, float radius,
 					float height);

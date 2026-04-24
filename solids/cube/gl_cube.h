@@ -17,8 +17,8 @@ typedef struct s_cube
 	t_transform	transform;
 }	t_cube;
 
-t_cube	gl_create_cube(t_vec3 origin, t_vec3 size);
-t_cube	gl_create_cube_with_label(t_vec3 origin, t_vec3 size,
+t_cube	gl_new_cube(t_vec3 origin, t_vec3 size);
+t_cube	gl_new_cube_with_label(t_vec3 origin, t_vec3 size,
 			const char *label);
 t_cube	*gl_alloc_cube(t_vec3 origin, t_vec3 size);
 t_cube	*gl_alloc_cube_with_label(t_vec3 origin, t_vec3 size,

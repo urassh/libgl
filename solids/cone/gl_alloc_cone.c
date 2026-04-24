@@ -9,7 +9,7 @@ t_cone	*gl_alloc_cone(t_vec3 origin, float radius, float height, int slices)
 	cone = (t_cone *)malloc(sizeof(t_cone));
 	if (!cone)
 		return (NULL);
-	*cone = gl_create_cone(origin, radius, height, slices);
+	*cone = gl_new_cone(origin, radius, height, slices);
 	return (cone);
 }
 
@@ -21,6 +21,7 @@ t_cone	*gl_alloc_cone_with_label(t_vec3 origin, float radius, float height,
 	cone = gl_alloc_cone(origin, radius, height, slices);
 	if (!cone)
 		return (NULL);
-	strlcpy(cone->label, label, GL_LABEL_MAX);
+	if (strlen(label) < GL_LABEL_MAX)
+		strlcpy(cone->label, label, GL_LABEL_MAX);
 	return (cone);
 }

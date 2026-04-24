@@ -19,9 +19,9 @@ typedef struct s_cylinder
 	t_transform	transform;
 }	t_cylinder;
 
-t_cylinder	gl_create_cylinder(t_vec3 origin, float radius, float height,
+t_cylinder	gl_new_cylinder(t_vec3 origin, float radius, float height,
 				int slices);
-t_cylinder	gl_create_cylinder_with_label(t_vec3 origin, float radius,
+t_cylinder	gl_new_cylinder_with_label(t_vec3 origin, float radius,
 				float height, int slices, const char *label);
 t_cylinder	*gl_alloc_cylinder(t_vec3 origin, float radius, float height,
 				int slices);

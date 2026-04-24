@@ -17,8 +17,8 @@ typedef struct s_rect
 	t_transform	transform;
 }	t_rect;
 
-t_rect	gl_create_rect(t_vec3 origin, t_vec3 size);
-t_rect	gl_create_rect_with_label(t_vec3 origin, t_vec3 size,
+t_rect	gl_new_rect(t_vec3 origin, t_vec3 size);
+t_rect	gl_new_rect_with_label(t_vec3 origin, t_vec3 size,
 			const char *label);
 t_rect	*gl_alloc_rect(t_vec3 origin, t_vec3 size);
 t_rect	*gl_alloc_rect_with_label(t_vec3 origin, t_vec3 size,

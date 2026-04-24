@@ -23,8 +23,8 @@ typedef struct s_group
 	int				count;
 }	t_group;
 
-t_group	gl_create_group(t_vec3 origin);
-t_group	gl_create_group_with_label(t_vec3 origin, const char *label);
+t_group	gl_new_group(t_vec3 origin);
+t_group	gl_new_group_with_label(t_vec3 origin, const char *label);
 t_group	*gl_alloc_group(t_vec3 origin);
 t_group	*gl_alloc_group_with_label(t_vec3 origin, const char *label);
 void	gl_free_group(t_group *group);

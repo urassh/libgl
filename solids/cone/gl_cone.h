@@ -19,8 +19,8 @@ typedef struct s_cone
 	t_transform	transform;
 }	t_cone;
 
-t_cone	gl_create_cone(t_vec3 origin, float radius, float height, int slices);
-t_cone	gl_create_cone_with_label(t_vec3 origin, float radius, float height,
+t_cone	gl_new_cone(t_vec3 origin, float radius, float height, int slices);
+t_cone	gl_new_cone_with_label(t_vec3 origin, float radius, float height,
 			int slices, const char *label);
 t_cone	*gl_alloc_cone(t_vec3 origin, float radius, float height, int slices);
 t_cone	*gl_alloc_cone_with_label(t_vec3 origin, float radius, float height,
