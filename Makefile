@@ -1,4 +1,4 @@
-CC		=	cc
+CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -Wno-deprecated-declarations -I.
 NAME	=	libgl.a
 
