@@ -14,6 +14,8 @@ typedef struct s_line
 }	t_line;
 
 t_line	gl_create_line(t_vec3 start, t_vec3 end);
+t_line	*gl_alloc_line(t_vec3 start, t_vec3 end);
+void	gl_free_line(t_line *line);
 void	gl_color_line(t_line *line, t_color color);
 void	gl_draw_line(t_line *line);
 

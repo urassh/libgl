@@ -14,6 +14,8 @@ typedef struct s_wire_rect
 }	t_wire_rect;
 
 t_wire_rect	gl_create_wire_rect(t_vec3 origin, t_vec3 size);
+t_wire_rect	*gl_alloc_wire_rect(t_vec3 origin, t_vec3 size);
+void		gl_free_wire_rect(t_wire_rect *rect);
 void		gl_color_wire_rect(t_wire_rect *rect, t_color color);
 void		gl_draw_wire_rect(t_wire_rect *rect);
 

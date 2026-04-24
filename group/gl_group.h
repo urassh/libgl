@@ -22,6 +22,8 @@ typedef struct s_group
 }	t_group;
 
 t_group	gl_create_group(t_vec3 origin);
+t_group	*gl_alloc_group(t_vec3 origin);
+void	gl_free_group(t_group *group);
 void	gl_group_add(t_group *group, void *object, void (*draw)(void *));
 void	gl_draw_group(t_group *group);
 

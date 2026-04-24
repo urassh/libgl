@@ -17,6 +17,8 @@ typedef struct s_cube
 }	t_cube;
 
 t_cube	gl_create_cube(t_vec3 origin, t_vec3 size);
+t_cube	*gl_alloc_cube(t_vec3 origin, t_vec3 size);
+void	gl_free_cube(t_cube *cube);
 void	gl_color_cube(t_cube *cube, t_color color);
 void	gl_colors_cube(t_cube *cube, t_color colors[6]);
 void	gl_outline_cube(t_cube *cube, t_color color);
