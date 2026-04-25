@@ -32,7 +32,7 @@ typedef struct s_group {
 | `t_group *gl_alloc_group_with_label(t_vec3 origin, const char *label)` | ラベル付きでヒープに確保 |
 | `void gl_free_group(t_group *group)` | 解放 |
 | `bool gl_label_group(t_group *group, const char *label)` | ラベルを設定 |
-| `void gl_group_add(t_group *group, void *object)` | 子オブジェクトを追加 (最大 64 個)。描画関数は `t_object_type` から自動解決される |
+| `void gl_group_add(t_group *group, void *object)` | 子オブジェクトを追加 (最大 64 個) |
 | `void *gl_group_find(t_group *group, const char *label)` | ラベルでオブジェクトを検索 (BFS) |
 | `void gl_draw_group(t_group *group)` | グループ全体を描画 |
 
