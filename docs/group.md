@@ -32,7 +32,7 @@ typedef struct s_group {
 | `t_group *gl_alloc_group_with_label(t_vec3 origin, const char *label)` | ラベル付きでヒープに確保 |
 | `void gl_free_group(t_group *group)` | 解放 |
 | `bool gl_label_group(t_group *group, const char *label)` | ラベルを設定 |
-| `void gl_group_add(t_group *group, void *object, void (*draw)(void *))` | 子オブジェクトを追加 (最大 64 個) |
+| `void gl_group_add(t_group *group, void *object)` | 子オブジェクトを追加 (最大 64 個) |
 | `void *gl_group_find(t_group *group, const char *label)` | ラベルでオブジェクトを検索 (BFS) |
 | `void gl_draw_group(t_group *group)` | グループ全体を描画 |
 
@@ -50,8 +50,8 @@ gl_color_wire_cone(cone, gl_yellow());
 
 // グループにまとめる
 t_group group = gl_new_group(gl_vec3(0, 0, 0));
-gl_group_add(&group, cube, (void (*)(void *))gl_draw_wire_cube);
-gl_group_add(&group, cone, (void (*)(void *))gl_draw_wire_cone);
+gl_group_add(&group, cube);
+gl_group_add(&group, cone);
 
 // グループごと移動・回転 → 子オブジェクト全体が連動する
 gl_translate(&group.transform, gl_vec3(3, 0, 0));
@@ -72,8 +72,8 @@ t_wire_cone *cone = gl_alloc_wire_cone_with_label(
     gl_vec3(0, 2, 0), 0.5, 1.0, "hat");
 
 t_group group = gl_new_group(gl_vec3(0, 0, 0));
-gl_group_add(&group, cube, (void (*)(void *))gl_draw_wire_cube);
-gl_group_add(&group, cone, (void (*)(void *))gl_draw_wire_cone);
+gl_group_add(&group, cube);
+gl_group_add(&group, cone);
 
 // ラベルで検索 (BFS でネストされたグループ内も探索)
 t_wire_cone *found = (t_wire_cone *)gl_group_find(&group, "hat");
@@ -85,12 +85,12 @@ if (found)
 
 ```c
 t_group arm = gl_new_group(gl_vec3(1, 0, 0));
-gl_group_add(&arm, upper_arm, (void (*)(void *))gl_draw_cube);
-gl_group_add(&arm, lower_arm, (void (*)(void *))gl_draw_cube);
+gl_group_add(&arm, upper_arm);
+gl_group_add(&arm, lower_arm);
 
 t_group body = gl_new_group(gl_vec3(0, 0, 0));
-gl_group_add(&body, torso, (void (*)(void *))gl_draw_cube);
-gl_group_add(&body, &arm, (void (*)(void *))gl_draw_group);
+gl_group_add(&body, torso);
+gl_group_add(&body, &arm);
 
 // body を回転すると arm (とその子) も一緒に回転する
 gl_rotate(&body.transform, gl_vec3(0, 30, 0));
