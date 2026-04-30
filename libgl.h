@@ -48,4 +48,9 @@
 # include "2d/rect/gl_2d_rect.h"
 # include "2d/wire_rect/gl_2d_wire_rect.h"
 
+/* ========== camera ========== */
+
+# include "camera/perspective/gl_perspective_camera.h"
+# include "camera/ortho/gl_ortho_camera.h"
+
 #endif
