@@ -99,7 +99,21 @@ SRCS	=	solids/line/gl_new_line.c \
 			2d/wire_rect/gl_free_2d_wire_rect.c \
 			2d/wire_rect/gl_label_2d_wire_rect.c \
 			2d/wire_rect/gl_color_2d_wire_rect.c \
-			2d/wire_rect/gl_draw_2d_wire_rect.c
+			2d/wire_rect/gl_draw_2d_wire_rect.c \
+			camera/perspective/gl_new_perspective_camera.c \
+			camera/perspective/gl_alloc_perspective_camera.c \
+			camera/perspective/gl_free_perspective_camera.c \
+			camera/perspective/gl_label_perspective_camera.c \
+			camera/perspective/gl_perspective_camera_look_at.c \
+			camera/perspective/gl_perspective_camera_lens.c \
+			camera/perspective/gl_apply_perspective_camera.c \
+			camera/ortho/gl_new_ortho_camera.c \
+			camera/ortho/gl_alloc_ortho_camera.c \
+			camera/ortho/gl_free_ortho_camera.c \
+			camera/ortho/gl_label_ortho_camera.c \
+			camera/ortho/gl_ortho_camera_look_at.c \
+			camera/ortho/gl_ortho_camera_lens.c \
+			camera/ortho/gl_apply_ortho_camera.c
 
 OBJS	=	$(SRCS:.c=.o)
 

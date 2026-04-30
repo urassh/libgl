@@ -16,6 +16,8 @@ typedef enum e_object_type
 	GL_TYPE_2D_LINE,
 	GL_TYPE_2D_RECT,
 	GL_TYPE_2D_WIRE_RECT,
+	GL_TYPE_PERSPECTIVE_CAMERA,
+	GL_TYPE_ORTHO_CAMERA,
 	GL_TYPE_COUNT
 }	t_object_type;
 

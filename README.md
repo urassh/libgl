@@ -136,6 +136,7 @@ cc main.c -L./libgl -lgl -framework OpenGL -framework GLUT -o app
 | [Wire Objects](docs/wires.md) | ワイヤーフレーム 3D オブジェクト — Wire Rect/Cube/Cone/Cylinder |
 | [2D Objects](docs/2d.md) | 2D オブジェクト — 2D Line, 2D Rect, 2D Wire Rect |
 | [Group](docs/group.md) | オブジェクトグループ — 階層変換、ラベル検索、ネスト |
+| [Camera](docs/camera.md) | カメラ — 透視投影 / 平行投影、視点・レンズ設定、行列適用 |
 
 ## 設計の概要
 
@@ -170,7 +171,10 @@ libgl/
 │   ├── line/
 │   ├── rect/
 │   └── wire_rect/
-└── group/               # オブジェクトグループ
+├── group/               # オブジェクトグループ
+└── camera/              # カメラ (視点と投影)
+    ├── perspective/
+    └── ortho/
 ```
 
 ## Contributing
